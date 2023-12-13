@@ -30,6 +30,10 @@ jobs:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
-    
-    - name: create docker image
-      run: docker build -t happy-shipping-workshop-server server
+
+    - name: Build and push docker image
+      uses: docker/build-push-action@v5
+      with:
+        context: server
+        push: true
+        tags: ghcr.io/${{ github.repository }}-server
