@@ -8,3 +8,14 @@ export async function loadPackages() {
     const response = await fetch(endpoint("/packages"))
     return await response.json()
 }
+
+export async function postPackage(packageObj) {
+    const response = await fetch(endpoint("/packages"), {
+        method: "post",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(packageObj)
+    })
+    return await response.json()
+}
