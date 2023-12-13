@@ -17,4 +17,16 @@ public class ServerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ServerApplication.class, args);
 	}
+
+	@Bean
+	public WebMvcConfigurer corsConfigure(@Value("${cors.allowed-origin-patterns}") String allowedOriginPatterns) {
+		return new WebMvcConfigurer() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				logger.info("Allow requests from " + allowedOriginPatterns);
+				registry.addMapping("/**").allowedOriginPatterns(allowedOriginPatterns);
+			}
+		};
+	}
+
 }
