@@ -23,3 +23,5 @@ jobs:
     - name: create jar
       working-directory: server
       run: mvn package
+    - name: create docker image
+      run: docker build -t happy-shipping-workshop-server server
