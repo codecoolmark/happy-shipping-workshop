@@ -13,6 +13,6 @@ public class Packages {
 
     @GetMapping
     public Collection<String> getPackages() {
-        return List.of("First package", "Second Package");
+        return List.of("First package", "Second Package", "Third Package");
     }
 }
