@@ -12,7 +12,7 @@ function App() {
     <>
       <h2>Packages</h2>
       <ul>
-        {packages.map((packageName, index) => <li key={index}>{packageName}</li>)}
+        {packages.map((packageName, index) => <li key={index}>{packageName.name}</li>)}
       </ul>
     </>
   )
